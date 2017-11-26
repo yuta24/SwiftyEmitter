@@ -31,6 +31,7 @@
 		2BF4A42B1FCAD05600AF9DBC /* SwiftyEmitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyEmitterTests.swift; sourceTree = "<group>"; };
 		2BF4A42D1FCAD05600AF9DBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BF4A4371FCAD40900AF9DBC /* Emittable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emittable.swift; sourceTree = "<group>"; };
+		2BF4A43E1FCAFE0400AF9DBC /* SwiftyEmitter.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftyEmitter.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				2BF4A4391FCAD41800AF9DBC /* Source */,
+				2BF4A43E1FCAFE0400AF9DBC /* SwiftyEmitter.playground */,
 				2BF4A4201FCAD05600AF9DBC /* SwiftyEmitter.h */,
 				2BF4A4211FCAD05600AF9DBC /* Info.plist */,
 			);
