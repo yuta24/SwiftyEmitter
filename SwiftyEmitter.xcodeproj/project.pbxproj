@@ -10,6 +10,7 @@
 		2BF4A4271FCAD05600AF9DBC /* SwiftyEmitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF4A41D1FCAD05600AF9DBC /* SwiftyEmitter.framework */; };
 		2BF4A42C1FCAD05600AF9DBC /* SwiftyEmitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF4A42B1FCAD05600AF9DBC /* SwiftyEmitterTests.swift */; };
 		2BF4A42E1FCAD05600AF9DBC /* SwiftyEmitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BF4A4201FCAD05600AF9DBC /* SwiftyEmitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2BF4A4381FCAD40900AF9DBC /* Emittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF4A4371FCAD40900AF9DBC /* Emittable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		2BF4A4261FCAD05600AF9DBC /* SwiftyEmitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyEmitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF4A42B1FCAD05600AF9DBC /* SwiftyEmitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyEmitterTests.swift; sourceTree = "<group>"; };
 		2BF4A42D1FCAD05600AF9DBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BF4A4371FCAD40900AF9DBC /* Emittable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emittable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		2BF4A41F1FCAD05600AF9DBC /* SwiftyEmitter */ = {
 			isa = PBXGroup;
 			children = (
+				2BF4A4391FCAD41800AF9DBC /* Source */,
 				2BF4A4201FCAD05600AF9DBC /* SwiftyEmitter.h */,
 				2BF4A4211FCAD05600AF9DBC /* Info.plist */,
 			);
@@ -84,6 +87,14 @@
 				2BF4A42D1FCAD05600AF9DBC /* Info.plist */,
 			);
 			path = SwiftyEmitterTests;
+			sourceTree = "<group>";
+		};
+		2BF4A4391FCAD41800AF9DBC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2BF4A4371FCAD40900AF9DBC /* Emittable.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +159,7 @@
 				TargetAttributes = {
 					2BF4A41C1FCAD05600AF9DBC = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					2BF4A4251FCAD05600AF9DBC = {
@@ -196,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF4A4381FCAD40900AF9DBC /* Emittable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +347,7 @@
 		2BF4A4321FCAD05600AF9DBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -347,6 +361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bivre.SwiftyEmitter;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +370,7 @@
 		2BF4A4331FCAD05600AF9DBC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -376,6 +392,7 @@
 		2BF4A4351FCAD05600AF9DBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PS98BD6732;
 				INFOPLIST_FILE = SwiftyEmitterTests/Info.plist;
@@ -390,6 +407,7 @@
 		2BF4A4361FCAD05600AF9DBC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PS98BD6732;
 				INFOPLIST_FILE = SwiftyEmitterTests/Info.plist;
