@@ -72,10 +72,6 @@ public class EventEmitter<E: Event, V: Any>: Emittable {
         locker.unlock()
     }
 
-    public func add(event: E, handler: @escaping ([V]) -> Void) -> HandlerToken {
-        return on(event: event, handler: handler)
-    }
-
     public func remove(event: E, token: HandlerToken) {
         let indexesOrNil: [Int]? = (handlers[event]?.enumerated().flatMap {
             if $0.element.token == token {
