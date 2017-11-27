@@ -11,6 +11,7 @@
 		2BF4A42C1FCAD05600AF9DBC /* SwiftyEmitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF4A42B1FCAD05600AF9DBC /* SwiftyEmitterTests.swift */; };
 		2BF4A42E1FCAD05600AF9DBC /* SwiftyEmitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BF4A4201FCAD05600AF9DBC /* SwiftyEmitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2BF4A4381FCAD40900AF9DBC /* Emittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF4A4371FCAD40900AF9DBC /* Emittable.swift */; };
+		2BF4A4401FCAFE3100AF9DBC /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF4A43F1FCAFE3100AF9DBC /* EventEmitter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		2BF4A42D1FCAD05600AF9DBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BF4A4371FCAD40900AF9DBC /* Emittable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emittable.swift; sourceTree = "<group>"; };
 		2BF4A43E1FCAFE0400AF9DBC /* SwiftyEmitter.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftyEmitter.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		2BF4A43F1FCAFE3100AF9DBC /* EventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				2BF4A4371FCAD40900AF9DBC /* Emittable.swift */,
+				2BF4A43F1FCAFE3100AF9DBC /* EventEmitter.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF4A4381FCAD40900AF9DBC /* Emittable.swift in Sources */,
+				2BF4A4401FCAFE3100AF9DBC /* EventEmitter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
