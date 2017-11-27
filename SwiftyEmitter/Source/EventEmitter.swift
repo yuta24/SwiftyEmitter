@@ -86,6 +86,10 @@ public class EventEmitter<E: Event, V: Any>: Emittable {
         }
     }
 
+    public func remove(event: E) {
+        handlers.removeValue(forKey: event)
+    }
+
     public func removeAll() {
         handlers.removeAll()
     }

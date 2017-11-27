@@ -20,5 +20,6 @@ public protocol Emittable {
     func once(event: EventType, handler: @escaping HandlerType) -> TokenType
     func emit(event: EventType, args: [ValueType])
     func remove(event: EventType, token: TokenType)
+    func remove(event: EventType)
     func removeAll()
 }
