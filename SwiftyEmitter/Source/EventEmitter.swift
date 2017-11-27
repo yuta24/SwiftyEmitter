@@ -54,6 +54,16 @@ public class EventEmitter<E: Event, V: Any>: Emittable {
         return handler.token
     }
 
+    public func once(event: E, handler: @escaping ([V]) -> Void) -> EventEmitter<E, V>.HandlerToken {
+        var fired = false
+        return on(event: event) { (args) in
+            if !fired {
+                fired = true
+                handler(args)
+            }
+        }
+    }
+
     public func emit(event: E, args: [V]) {
         locker.lock()
         handlers[event]?.forEach {
@@ -63,9 +73,7 @@ public class EventEmitter<E: Event, V: Any>: Emittable {
     }
 
     public func add(event: E, handler: @escaping ([V]) -> Void) -> HandlerToken {
-        let handler = Handler(raw: handler)
-        handlers[event]?.append(handler)
-        return handler.token
+        return on(event: event, handler: handler)
     }
 
     public func remove(event: E, token: HandlerToken) {

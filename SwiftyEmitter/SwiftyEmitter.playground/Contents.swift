@@ -27,6 +27,15 @@ emitter.remove(event: .down, token: token)
 
 emitter.emit(event: .up, args: [456])
 
+
 emitter.remove(event: .up, token: token)
 
 emitter.emit(event: .up, args: [789])
+
+emitter.once(event: .left) { (response) in
+    print(response)
+}
+
+emitter.emit(event: .left, args: [123])
+emitter.emit(event: .left, args: [456])
+emitter.emit(event: .left, args: [789])
