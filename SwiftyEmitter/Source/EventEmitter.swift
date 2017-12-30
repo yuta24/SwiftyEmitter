@@ -8,22 +8,22 @@
 
 import Foundation
 
+public struct HandlerToken: Token, Equatable {
+    let id: String
+
+    init() {
+        self.id = UUID().uuidString
+    }
+
+    public static func ==(lhs: HandlerToken, rhs: HandlerToken) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
 public class EventEmitter<E: Event, V: Any>: Emittable {
     public typealias EventType = E
     public typealias ValueType = V
     public typealias TokenType = HandlerToken
-
-    public struct HandlerToken: Token, Equatable {
-        let id: String
-
-        init() {
-            self.id = UUID().uuidString
-        }
-
-        public static func ==(lhs: HandlerToken, rhs: HandlerToken) -> Bool {
-            return lhs.id == rhs.id
-        }
-    }
 
     public struct Handler: Equatable {
         let token: HandlerToken
@@ -54,7 +54,7 @@ public class EventEmitter<E: Event, V: Any>: Emittable {
         return handler.token
     }
 
-    public func once(event: E, handler: @escaping ([V]) -> Void) -> EventEmitter<E, V>.HandlerToken {
+    public func once(event: E, handler: @escaping ([V]) -> Void) -> HandlerToken {
         var fired = false
         return on(event: event) { (args) in
             if !fired {
