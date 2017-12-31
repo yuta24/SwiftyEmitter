@@ -12,14 +12,14 @@ public protocol Event: Hashable {}
 public protocol Token {}
 
 public protocol Emittable {
-    associatedtype EventType: Event
-    associatedtype ValueType: Any
-    associatedtype TokenType: Token
-    typealias HandlerType = ([ValueType]) -> Void
-    func on(event: EventType, handler: @escaping HandlerType) -> TokenType
-    func once(event: EventType, handler: @escaping HandlerType) -> TokenType
-    func emit(event: EventType, args: [ValueType])
-    func remove(event: EventType, token: TokenType)
-    func remove(event: EventType)
+    associatedtype E: Event
+    associatedtype V
+    associatedtype T: Token
+    typealias Handler = (V) -> Void
+    func on(event: E, handler: @escaping Handler) -> T
+    func once(event: E, handler: @escaping Handler) -> T
+    func emit(event: E, args: V)
+    func remove(event: E, token: T)
+    func remove(event: E)
     func removeAll()
 }

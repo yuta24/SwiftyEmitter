@@ -20,33 +20,33 @@ public struct HandlerToken: Token, Equatable {
     }
 }
 
-public class EventEmitter<E: Event, V: Any>: Emittable {
-    public typealias EventType = E
-    public typealias ValueType = V
-    public typealias TokenType = HandlerToken
+public class EventEmitter<EmitterEvent: Event, EmitterValue>: Emittable {
+    public typealias E = EmitterEvent
+    public typealias V = EmitterValue
+    public typealias T = HandlerToken
 
-    public struct Handler: Equatable {
+    public struct EmitterHandler: Equatable {
         let token: HandlerToken
-        let raw: HandlerType
+        let raw: Handler
 
-        init(raw: @escaping HandlerType) {
+        init(raw: @escaping Handler) {
             self.token = HandlerToken()
             self.raw = raw
         }
 
-        public static func ==(lhs: Handler, rhs: Handler) -> Bool {
+        public static func ==(lhs: EmitterHandler, rhs: EmitterHandler) -> Bool {
             return lhs.token == rhs.token
         }
     }
 
-    private var handlers = [E: [Handler]]()
+    private var handlers = [E: [EmitterHandler]]()
     private let locker = NSRecursiveLock()
 
     public init() {
     }
 
-    public func on(event: E, handler: @escaping ([V]) -> Void) -> HandlerToken {
-        let handler = Handler(raw: handler)
+    public func on(event: EmitterEvent, handler: @escaping (EmitterValue) -> Void) -> HandlerToken {
+        let handler = EmitterHandler(raw: handler)
         if handlers[event] == nil {
             handlers[event] = []
         }
@@ -54,7 +54,7 @@ public class EventEmitter<E: Event, V: Any>: Emittable {
         return handler.token
     }
 
-    public func once(event: E, handler: @escaping ([V]) -> Void) -> HandlerToken {
+    public func once(event: EmitterEvent, handler: @escaping (EmitterValue) -> Void) -> HandlerToken {
         var fired = false
         return on(event: event) { (args) in
             if !fired {
@@ -64,7 +64,7 @@ public class EventEmitter<E: Event, V: Any>: Emittable {
         }
     }
 
-    public func emit(event: E, args: [V]) {
+    public func emit(event: EmitterEvent, args: EmitterValue) {
         locker.lock()
         handlers[event]?.forEach {
             $0.raw(args)
@@ -72,7 +72,7 @@ public class EventEmitter<E: Event, V: Any>: Emittable {
         locker.unlock()
     }
 
-    public func remove(event: E, token: HandlerToken) {
+    public func remove(event: EmitterEvent, token: HandlerToken) {
         let indexesOrNil: [Int]? = (handlers[event]?.enumerated().flatMap {
             if $0.element.token == token {
                 return nil
@@ -86,7 +86,7 @@ public class EventEmitter<E: Event, V: Any>: Emittable {
         }
     }
 
-    public func remove(event: E) {
+    public func remove(event: EmitterEvent) {
         handlers.removeValue(forKey: event)
     }
 
